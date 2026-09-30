@@ -1,0 +1,300 @@
+/* Berkan Kublay - 2321032015 */
+
+:root {
+    --no: 2321032015;
+    --ton: 55;
+
+    --renk-ana: hsl(var(--ton) 65% 38%);
+    --renk-zemin: hsl(var(--ton) 30% 97%);
+    --renk-kart: hsl(var(--ton) 30% 100%);
+    --renk-metin: hsl(var(--ton) 15% 15%);
+    --renk-kenar: hsl(var(--ton) 35% 70%);
+    --renk-hata: hsl(0 70% 50%);
+
+    --font: "Times New Roman", serif;
+
+    --bosluk-s: 0.5rem;
+    --bosluk-m: 1rem;
+    --bosluk-l: 2rem;
+
+    --kose: 8px;
+}
+
+
+/* Genel ayarlar */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background-color: var(--renk-zemin);
+    color: var(--renk-metin);
+}
+
+header,
+main,
+footer {
+    width: min(1100px, 92%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Başlık ve menü */
+
+header {
+    background-color: var(--renk-ana);
+    padding: var(--bosluk-m);
+    color: var(--renk-kart);
+    border-radius: 0 0 var(--kose) var(--kose);
+}
+
+header h1 {
+    margin: 0 0 var(--bosluk-s);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bosluk-m);
+}
+
+header nav a {
+    color: var(--renk-kart);
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Ana içerik */
+
+main {
+    padding-top: var(--bosluk-l);
+    padding-bottom: var(--bosluk-l);
+}
+
+main a {
+    color: var(--renk-ana);
+}
+
+
+/* Ana sayfadaki iki etkinlik */
+
+.yaklasan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--bosluk-m);
+}
+
+
+/* Tüm etkinlikler sayfasındaki üç kart */
+
+.etkinlik-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--bosluk-m);
+}
+
+.etkinlik-kart {
+    background-color: var(--renk-kart);
+    border: 1px solid var(--renk-kenar);
+    border-radius: var(--kose);
+    padding: var(--bosluk-m);
+}
+
+.etkinlik-kart h3 {
+    margin-top: 0;
+}
+
+.etkinlik-kart a {
+    font-weight: bold;
+}
+
+
+/* Etkinlik detay sayfası */
+
+.detay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--bosluk-l);
+    align-items: start;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--kose);
+}
+
+figcaption {
+    margin-top: var(--bosluk-s);
+}
+
+.etkinlik-kunye {
+    background-color: var(--renk-kart);
+    border: 1px solid var(--renk-kenar);
+    border-radius: var(--kose);
+    padding: var(--bosluk-m);
+}
+
+.etkinlik-kunye h2 {
+    margin-top: 0;
+}
+
+.etkinlik-kunye dl {
+    margin: 0;
+}
+
+.etkinlik-kunye dt {
+    font-weight: bold;
+    margin-top: var(--bosluk-m);
+}
+
+.etkinlik-kunye dd {
+    margin-left: 0;
+}
+
+
+/* Formlar */
+
+.etkinlik-formu {
+    width: 100%;
+    max-width: 650px;
+
+    display: grid;
+    gap: var(--bosluk-s);
+}
+
+.etkinlik-formu label {
+    font-weight: bold;
+    margin-top: var(--bosluk-s);
+}
+
+.etkinlik-formu input,
+.etkinlik-formu select,
+.etkinlik-formu textarea {
+    width: 100%;
+    padding: var(--bosluk-m);
+
+    font: inherit;
+
+    background-color: var(--renk-kart);
+
+    border: 1px solid var(--renk-kenar);
+    border-radius: var(--kose);
+}
+
+.etkinlik-formu textarea {
+    resize: vertical;
+}
+
+
+/* Zorunlu alan boşsa hata */
+
+.etkinlik-formu input:invalid,
+.etkinlik-formu select:invalid,
+.etkinlik-formu textarea:invalid {
+    border-color: var(--renk-hata);
+}
+
+
+/* Form butonları */
+
+.form-butonlari {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bosluk-s);
+
+    margin-top: var(--bosluk-s);
+}
+
+button {
+    min-height: 44px;
+
+    padding: var(--bosluk-s) var(--bosluk-m);
+
+    font: inherit;
+
+    background-color: var(--renk-ana);
+    color: var(--renk-kart);
+
+    border: 1px solid var(--renk-ana);
+    border-radius: var(--kose);
+
+    cursor: pointer;
+}
+
+
+/* Ayın programı tablosu */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: var(--bosluk-m);
+
+    background-color: var(--renk-kart);
+}
+
+th,
+td {
+    border: 1px solid var(--renk-kenar);
+    padding: var(--bosluk-s);
+    text-align: left;
+}
+
+
+/* Alt bilgi */
+
+footer {
+    padding-top: var(--bosluk-m);
+    padding-bottom: var(--bosluk-l);
+}
+
+
+/* Telefon görünümü */
+
+@media (max-width: 700px) {
+
+    header,
+    main,
+    footer {
+        width: 94%;
+    }
+
+    nav {
+        gap: var(--bosluk-s);
+    }
+
+    .yaklasan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .etkinlik-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detay-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-butonlari {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}

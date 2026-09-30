@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kampüs Etkinlikleri - Berkan Kublay Sprint 2 CSS ve Responsive Tasarım">
+  <title>Etkinlik Ekle | Kampüs Etkinlikleri</title>
+  <link rel="stylesheet" href="css/2321032015.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Etkinlik Ekle</h1>
+
+    <nav aria-label="Ana menü">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="etkinlikler.html">Etkinlikler</a>
+      <a href="etkinlik-ekle.html">Ekle</a>
+      <a href="etkinlik-guncelle.html">Güncelle</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <form class="etkinlik-formu" action="etkinlikler.html" method="get">
+
+      <label for="ad">Etkinlik Adı *</label>
+      <input
+        type="text"
+        id="ad"
+        name="ad"
+        maxlength="80"
+        placeholder="Örn. Kariyer Günleri 2026"
+        required
+      >
+
+      <label for="kategori">Kategori *</label>
+      <select id="kategori" name="kategori" required>
+        <option value="" selected>Seçiniz</option>
+        <option value="seminer">Seminer</option>
+        <option value="atolye">Atölye</option>
+        <option value="soylesi">Söyleşi</option>
+        <option value="yarisma">Yarışma</option>
+      </select>
+
+      <label for="tarih">Tarih *</label>
+      <input
+        type="date"
+        id="tarih"
+        name="tarih"
+        required
+      >
+
+      <label for="saat">Saat *</label>
+      <input
+        type="time"
+        id="saat"
+        name="saat"
+        required
+      >
+
+      <label for="yer">Yer *</label>
+      <input
+        type="text"
+        id="yer"
+        name="yer"
+        maxlength="80"
+        placeholder="Örn. A Blok Konferans Salonu"
+        required
+      >
+
+      <label for="kontenjan">Kontenjan</label>
+      <input
+        type="number"
+        id="kontenjan"
+        name="kontenjan"
+        min="1"
+        max="1000"
+      >
+
+      <label for="aciklama">Açıklama</label>
+      <textarea
+        id="aciklama"
+        name="aciklama"
+        rows="5"
+      ></textarea>
+
+      <div class="form-butonlari">
+        <button type="submit">Kaydet</button>
+        <button type="reset">Temizle</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Berkan Kublay · 2321032015 · 2026</p>
+  </footer>
+
+</body>
+</html>
