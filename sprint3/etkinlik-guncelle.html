@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Kampüs Etkinlikleri - Etkinlik Güncelle"
+  >
+
+  <title>Etkinlik Güncelle | Kampüs Etkinlikleri</title>
+
+  <link
+    rel="stylesheet"
+    href="css/2321032015.css"
+  >
+
+  <script
+    type="module"
+    src="js/event-form.js">
+  </script>
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Kampüs Etkinlikleri</h1>
+
+    <nav aria-label="Ana menü">
+
+      <a href="index.html">
+        Ana Sayfa
+      </a>
+
+      <a href="etkinlikler.html">
+        Etkinlikler
+      </a>
+
+      <a href="etkinlik-ekle.html">
+        Ekle
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <section aria-labelledby="guncelle-baslik">
+
+      <h2 id="guncelle-baslik">
+        Etkinlik Güncelle
+      </h2>
+
+      <p>
+        Etkinlik bilgilerini düzenleyip güncelleyebilirsiniz.
+      </p>
+
+      <form
+        id="etkinlik-formu"
+        class="etkinlik-formu"
+        data-mode="guncelle"
+        novalidate>
+
+        <label for="ad">
+          Etkinlik Adı
+        </label>
+
+        <input
+          type="text"
+          id="ad"
+          name="ad"
+        >
+
+        <span id="ad-hata"></span>
+
+
+        <label for="kategori">
+          Kategori
+        </label>
+
+        <select
+          id="kategori"
+          name="kategori">
+
+          <option value="">
+            Seçiniz
+          </option>
+
+          <option value="Seminer">
+            Seminer
+          </option>
+
+          <option value="Atölye">
+            Atölye
+          </option>
+
+          <option value="Söyleşi">
+            Söyleşi
+          </option>
+
+        </select>
+
+        <span id="kategori-hata"></span>
+
+
+        <label for="tarih">
+          Tarih
+        </label>
+
+        <input
+          type="date"
+          id="tarih"
+          name="tarih"
+        >
+
+        <span id="tarih-hata"></span>
+
+
+        <label for="saat">
+          Saat
+        </label>
+
+        <input
+          type="time"
+          id="saat"
+          name="saat"
+        >
+
+        <span id="saat-hata"></span>
+
+
+        <label for="yer">
+          Yer
+        </label>
+
+        <input
+          type="text"
+          id="yer"
+          name="yer"
+        >
+
+        <span id="yer-hata"></span>
+
+
+        <label for="kontenjan">
+          Kontenjan
+        </label>
+
+        <input
+          type="number"
+          id="kontenjan"
+          name="kontenjan"
+          min="1"
+          max="1000"
+        >
+
+        <span id="kontenjan-hata"></span>
+
+
+        <label for="aciklama">
+          Açıklama
+        </label>
+
+        <textarea
+          id="aciklama"
+          name="aciklama"
+          rows="5">
+        </textarea>
+
+        <span id="aciklama-hata"></span>
+
+
+        <div class="form-butonlari">
+
+          <button type="submit">
+            Güncelle
+          </button>
+
+        </div>
+
+      </form>
+
+      <div id="form-mesaj"></div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      Berkan Kublay · 2321032015 · 2026
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
