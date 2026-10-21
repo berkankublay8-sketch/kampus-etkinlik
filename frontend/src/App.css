@@ -38,7 +38,8 @@ textarea {
     font: inherit;
 }
 
-header,
+.site-baslik,
+.menu,
 main,
 footer {
     width: min(1100px, 92%);
@@ -46,35 +47,41 @@ footer {
     margin-right: auto;
 }
 
-header {
+.site-baslik {
     background-color: var(--renk-ana);
-    padding: var(--bosluk-m);
+    padding: var(--bosluk-m) var(--bosluk-m) var(--bosluk-s);
     color: var(--renk-kart);
-    border-radius: 0 0 var(--kose) var(--kose);
 }
 
-header h1 {
+.site-baslik h1 {
     margin: 0 0 var(--bosluk-s);
 }
 
-nav {
+.site-baslik p {
+    margin: 0;
+}
+
+.menu {
     display: flex;
     flex-wrap: wrap;
     gap: var(--bosluk-s);
+    background-color: var(--renk-ana);
+    padding: var(--bosluk-s) var(--bosluk-m) var(--bosluk-m);
+    border-radius: 0 0 var(--kose) var(--kose);
 }
 
-header nav a {
+.menu a {
     color: var(--renk-kart);
     text-decoration: none;
     padding: var(--bosluk-s);
     border-radius: calc(var(--kose) / 2);
 }
 
-header nav a:hover {
+.menu a:hover {
     text-decoration: underline;
 }
 
-header nav a[aria-current="page"] {
+.menu a[aria-current="page"] {
     background-color: var(--renk-kart);
     color: var(--renk-ana);
     text-decoration: none;
@@ -89,16 +96,14 @@ main a {
     color: var(--renk-ana);
 }
 
-.yaklasan-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--bosluk-m);
-}
-
 .etkinlik-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--bosluk-m);
+}
+
+.yaklasanlar .etkinlik-grid {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .etkinlik-kart {
@@ -138,7 +143,8 @@ main a {
     border-radius: var(--kose);
 }
 
-#sonuc {
+#sonuc,
+.sonuc {
     margin-top: var(--bosluk-s);
     margin-bottom: var(--bosluk-m);
     color: var(--renk-ana);
@@ -255,17 +261,18 @@ footer {
 }
 
 @media (max-width: 700px) {
-    header,
+    .site-baslik,
+    .menu,
     main,
     footer {
         width: 94%;
     }
 
-    nav {
+    .menu {
         gap: 0.25rem;
     }
 
-    .yaklasan-grid,
+    .yaklasanlar .etkinlik-grid,
     .etkinlik-grid,
     .detay-grid,
     .filtre {
