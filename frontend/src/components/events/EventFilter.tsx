@@ -30,15 +30,11 @@ function EventFilter({
       <select
         id="kategori-filtre"
         value={category}
-        onChange={(e) =>
-          onCategoryChange(e.target.value as Category | "")
-        }
+        onChange={(e) => onCategoryChange(e.target.value as Category | "")}
       >
         <option value="">Tümü</option>
         {categories.map((item) => (
-          <option value={item} key={item}>
-            {item}
-          </option>
+          <option value={item} key={item}>{item}</option>
         ))}
       </select>
     </form>

@@ -1,22 +1,18 @@
+import { Link } from "react-router-dom";
 import type { CampusEvent } from "../../types/campus-event";
 import { formatDate } from "../../utils/format-date";
 
 interface EventDetailProps {
   event: CampusEvent;
-  onBack: () => void;
-  onEdit: (id: string) => void;
 }
 
-function EventDetail({ event, onBack, onEdit }: EventDetailProps) {
+function EventDetail({ event }: EventDetailProps) {
   return (
     <>
       <div className="detay-grid">
         {event.image && (
           <figure>
-            <img
-              src={event.image}
-              alt={`${event.title} etkinlik afişi`}
-            />
+            <img src={event.image} alt={`${event.title} etkinlik afişi`} />
             <figcaption>{event.title} afişi</figcaption>
           </figure>
         )}
@@ -25,9 +21,7 @@ function EventDetail({ event, onBack, onEdit }: EventDetailProps) {
           <h2>Etkinlik Künyesi</h2>
           <dl>
             <dt>Tarih</dt>
-            <dd>
-              {formatDate(event.date)}, {event.time}
-            </dd>
+            <dd>{formatDate(event.date)}, {event.time}</dd>
             <dt>Yer</dt>
             <dd>{event.location}</dd>
             <dt>Kategori</dt>
@@ -42,12 +36,10 @@ function EventDetail({ event, onBack, onEdit }: EventDetailProps) {
         <h2>Açıklama</h2>
         <p>{event.description}</p>
         <div className="form-butonlari">
-          <button type="button" onClick={onBack}>
-            ← Listeye dön
-          </button>
-          <button type="button" onClick={() => onEdit(event.id)}>
+          <Link className="button-link" to="/events">← Listeye dön</Link>
+          <Link className="button-link" to={`/admin/${event.id}/edit`}>
             Bu etkinliği güncelle
-          </button>
+          </Link>
         </div>
       </section>
     </>
