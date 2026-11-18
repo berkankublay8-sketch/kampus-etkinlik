@@ -1,6 +1,6 @@
 # Kampüs Etkinlik API — Sprint 7
 
-Express ile hazırlanmış Kampüs Etkinlikleri REST API sunucusudur.
+Express ile hazırlanmış Kampüs Etkinlikleri REST API sunucusudur. Sprint 8 hazırlığı için Mongoose bağlantısı eklenmiştir.
 
 ## Çalıştırma
 
@@ -8,24 +8,21 @@ Repo kökünden:
 
 ```bash
 cd backend
-npm install
+npm ci
 cp .env.example .env
+```
+
+Atlas bağlantısını kullanmak için `.env` dosyasında `MONGODB_URI` örneğini kendi bağlantı adresinizle değiştirin. Yerel MongoDB için `mongodb://127.0.0.1:27017/kampus` kullanılabilir. Sprint 7'yi veritabanı olmadan çalıştırmak için `MONGODB_URI` satırını kaldırın.
+
+```bash
 npm run dev
 ```
 
-Sunucu varsayılan olarak şu adreste çalışır:
+Sunucu varsayılan olarak `http://localhost:3000` adresinde çalışır. `MONGODB_URI` tanımlıysa API, Mongoose bağlantısı kurulduktan sonra istek kabul eder. Bağlantı kurulamazsa sunucu hata koduyla kapanır ve bağlantı adresini günlük çıktısına yazmaz.
 
-```text
-http://localhost:3000
-```
+Atlas adresi için DNS, SRV kaydını çözemiyorsa `.env` dosyasında isteğe bağlı `MONGODB_DNS_SERVERS=1.1.1.1` ayarını kullanabilirsiniz. Bu ayar yalnızca Node.js sürecine uygulanır.
 
-`.env` dosyası:
-
-```text
-PORT=3000
-```
-
-`.env` ve `node_modules` GitHub'a gönderilmez.
+Gerçek bağlantı adresini yalnızca Git'in yok saydığı `.env` dosyasında veya ortam değişkeninde saklayın. `.env.example` yer tutucular içerir.
 
 ## REST Sözleşmesi
 
