@@ -1,17 +1,13 @@
 import "dotenv/config";
 import app from "./app.js";
-import { connectDatabase, disconnectDatabase } from "./config/db.js";
+import { connectDatabase, disconnectDatabase } from "./config/database.js";
 
 const PORT = process.env.PORT || 3000;
-const mongoUri = process.env.MONGODB_URI?.trim();
-
-if (mongoUri) {
-  try {
-    await connectDatabase(mongoUri);
-  } catch {
-    console.error("MongoDB bağlantısı kurulamadı. MONGODB_URI, DNS ve Atlas erişimini kontrol edin.");
-    process.exit(1);
-  }
+try {
+  await connectDatabase();
+} catch (error) {
+  console.error(error.message);
+  process.exit(1);
 }
 
 const server = app.listen(PORT, () => {
