@@ -1,9 +1,5 @@
-// Sprint 7: Frontend'in 6 kaydi temel alindi; ad, yer ve aciklamalar
-// ogrencinin kampus etkinlikleri projesine gore ozgunlestirildi.
-// ID'ler bilincli olarak event-1 ... event-6 seklinde korundu.
-export const events = [
+export const seedEvents = [
   {
-    id: "event-1",
     title: "Berkan ile Kariyer Rotası 2026",
     category: "Seminer",
     capacity: 120,
@@ -13,7 +9,6 @@ export const events = [
     description: "Bilgisayar mühendisliği mezunlarının staj, ilk iş ve teknik mülakat deneyimlerini paylaştığı buluşma.",
   },
   {
-    id: "event-2",
     title: "Robotik Atölyesi: Çizgi İzleyen Araç",
     category: "Atölye",
     capacity: 30,
@@ -23,7 +18,6 @@ export const events = [
     description: "Arduino, kızılötesi sensör ve motor sürücü kullanarak kendi çizgi izleyen aracımızı tasarlıyoruz.",
   },
   {
-    id: "event-3",
     title: "Siber Güvenlikte İlk Adımlar",
     category: "Söyleşi",
     capacity: 100,
@@ -33,7 +27,6 @@ export const events = [
     description: "Ağ güvenliği, etik hackerlık ve güvenlik alanında kariyere başlangıç konularını örneklerle konuşuyoruz.",
   },
   {
-    id: "event-4",
     title: "Üretken Yapay Zekâ Uygulamaları",
     category: "Seminer",
     capacity: 150,
@@ -43,7 +36,6 @@ export const events = [
     description: "Üretken yapay zekânın yazılım geliştirme süreçlerinde güvenilir ve verimli kullanımı ele alınıyor.",
   },
   {
-    id: "event-5",
     title: "Web Arayüz Tasarım Atölyesi",
     category: "Atölye",
     capacity: 25,
@@ -53,7 +45,6 @@ export const events = [
     description: "HTML, CSS ve erişilebilir bileşenlerle duyarlı bir kampüs etkinliği kartı oluşturuyoruz.",
   },
   {
-    id: "event-6",
     title: "Yazılım Geliştirici Kariyer Sohbeti",
     category: "Söyleşi",
     capacity: 90,

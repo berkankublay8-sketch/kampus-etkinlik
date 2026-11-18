@@ -25,4 +25,15 @@ app.use((_req, res) => {
   });
 });
 
+app.use((error, _req, res, next) => {
+  if (res.headersSent) {
+    return next(error);
+  }
+  if (error.type === "entity.parse.failed") {
+    return res.status(400).json({ error: { message: "Invalid JSON" } });
+  }
+  console.error("API isteği başarısız.", error.name);
+  res.status(500).json({ error: { message: "Server error" } });
+});
+
 export default app;
