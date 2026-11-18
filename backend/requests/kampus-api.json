@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "33ea8013-8645-4dbf-985f-5ceea9856335",
     "name": "Kampüs API",
-    "description": "Sprint 7 — Berkan Kublay 2321032015 — 6 istek. Sunucu yeniden baslatildiginda liste 6 kayda doner.",
+    "description": "Sprint 8 — MongoDB üzerinden altı API kontrolü. Seed sonrasında koleksiyonu sırayla çalıştırın.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "60116891",
     "_collection_link": "https://go.postman.co/collection/60116891-33ea8013-8645-4dbf-985f-5ceea9856335?source=collection_link"
@@ -49,7 +49,16 @@
             "type": "text/javascript",
             "exec": [
               "pm.test(\"200 OK\", () => pm.response.to.have.status(200));",
-              "pm.test(\"6 etkinlik\", () => pm.expect(pm.response.json()).to.have.lengthOf(6));"
+              "pm.test(\"6 etkinlik\", () => pm.expect(pm.response.json()).to.have.lengthOf(6));",
+              "const events = pm.response.json();",
+              "pm.test(\"MongoDB kimliği ve zaman damgaları\", () => {",
+              "  for (const event of events) {",
+              "    pm.expect(event._id).to.match(/^[0-9a-f]{24}$/);",
+              "    pm.expect(event.createdAt).to.be.a(\"string\");",
+              "    pm.expect(event.updatedAt).to.be.a(\"string\");",
+              "  }",
+              "});",
+              "if (Array.isArray(events) && events.length) pm.collectionVariables.set(\"eventId\", events[0]._id);"
             ]
           }
         }
@@ -80,7 +89,7 @@
             "type": "text/javascript",
             "exec": [
               "pm.test(\"200 OK\", () => pm.response.to.have.status(200));",
-              "pm.test(\"event-2\", () => pm.expect(pm.response.json().id).to.eql(\"event-2\"));"
+              "pm.test(\"Listedeki etkinlik\", () => pm.expect(pm.response.json()._id).to.eql(pm.collectionVariables.get(\"eventId\")));"
             ]
           }
         }
@@ -89,7 +98,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/event-2",
+          "raw": "http://localhost:3000/events/{{eventId}}",
           "protocol": "http",
           "host": [
             "localhost"
@@ -97,7 +106,7 @@
           "port": "3000",
           "path": [
             "events",
-            "event-2"
+            "{{eventId}}"
           ]
         }
       },
@@ -144,7 +153,8 @@
             "type": "text/javascript",
             "exec": [
               "pm.test(\"201 Created\", () => pm.response.to.have.status(201));",
-              "pm.test(\"Yeni ID\", () => pm.expect(pm.response.json().id).to.match(/^event-\\d+$/));"
+              "pm.test(\"Yeni MongoDB kimliği\", () => pm.expect(pm.response.json()._id).to.match(/^[0-9a-f]{24}$/));",
+              "pm.test(\"createdAt\", () => pm.expect(pm.response.json().createdAt).to.be.a(\"string\"));"
             ]
           }
         }
@@ -189,7 +199,7 @@
             "type": "text/javascript",
             "exec": [
               "pm.test(\"400 Bad Request\", () => pm.response.to.have.status(400));",
-              "pm.test(\"error.message\", () => pm.expect(pm.response.json().error.message).to.eql(\"title, category and date are required\"));"
+              "pm.test(\"Şema hatası\", () => { const message = pm.response.json().error.message; pm.expect(message).to.include(\"category\"); pm.expect(message).to.include(\"date\"); });"
             ]
           }
         }
@@ -224,6 +234,12 @@
         }
       },
       "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "eventId",
+      "value": ""
     }
   ]
 }
